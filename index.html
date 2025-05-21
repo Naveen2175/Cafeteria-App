@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cafeteria</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Cafeteria Menu</h1>
+    <button onclick="showCart()" class="cart-btn">🛒 View Cart (<span id="cart-count">0</span>)</button>
+  </header>
+
+  <main id="menu"></main>
+
+  <div id="cart-modal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Your Cart</h2>
+      <div id="cart-items"></div>
+      <p><strong>Total:</strong> ₹<span id="total">0</span></p>
+      <button onclick="showPayment()">Proceed to Pay</button>
+      <button onclick="closeCart()">Close</button>
+    </div>
+  </div>
+
+  <div id="payment-modal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Payment</h2>
+      <label>Choose Payment Method:</label><br/>
+      <select>
+        <option>Credit Card</option>
+        <option>Debit Card</option>
+        <option>UPI</option>
+        <option>Net Banking</option>
+        <option>Cash on Delivery</option>
+      </select>
+      <p>Total Payable: ₹<span id="pay-amount">0</span></p>
+      <button onclick="payNow()">Pay Now</button>
+      <button onclick="closePayment()">Cancel</button>
+    </div>
+  </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMenu();
+  });
+</script>
+<script src="script.js"></script>
+</body>
+</html>
+
